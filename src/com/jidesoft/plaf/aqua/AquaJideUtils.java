@@ -56,6 +56,7 @@ public class AquaJideUtils extends VsnetLookAndFeelExtension {
             table.put("NestedTableHeaderUI", aquaPackageName + "AquaNestedTableHeaderUI");
             table.put("EditableTableHeaderUI", aquaPackageName + "AquaEditableTableHeaderUI");
             table.put("AutoFilterTableHeaderUI", aquaPackageName + "AquaAutoFilterTableHeaderUI");
+            table.put("GroupTableHeaderUI", aquaPackageName + "AquaGroupTableHeaderUI");
             table.put("ExComboBoxUI", aquaPackageName + "AquaExComboBoxUI");
         }
 

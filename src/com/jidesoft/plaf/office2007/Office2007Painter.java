@@ -75,7 +75,7 @@ public class Office2007Painter extends BasicPainter {
 
     @Override
     protected boolean shouldDisplayOnTop() {
-        return SystemInfo.isWindowsVistaAbove() && UIManager.getLookAndFeel() instanceof WindowsLookAndFeel && XPUtils.isXPStyleOn();
+        return true;
     }
 
     //    private static final Color[] CONTENT_BG = new Color[]{

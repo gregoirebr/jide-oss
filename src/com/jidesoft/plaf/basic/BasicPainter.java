@@ -4,8 +4,6 @@ import com.jidesoft.plaf.UIDefaultsLookup;
 import com.jidesoft.swing.*;
 import com.jidesoft.utils.ColorUtils;
 import com.jidesoft.utils.SecurityUtils;
-import com.jidesoft.utils.SystemInfo;
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import sun.swing.plaf.synth.SynthIcon;
 
 import javax.swing.*;
@@ -14,7 +12,6 @@ import javax.swing.plaf.UIResource;
 import javax.swing.plaf.synth.Region;
 import javax.swing.plaf.synth.SynthContext;
 import javax.swing.plaf.synth.SynthLookAndFeel;
-import javax.swing.plaf.synth.SynthStyle;
 import java.awt.*;
 
 /**
@@ -843,6 +840,22 @@ public class BasicPainter implements SwingConstants, ThemePainter {
         g.setColor(color);
         g.fillRect(rect.x, rect.y, rect.width, rect.height);
         g.setColor(oldColor);
+    }
+
+    public Insets getSortableTableHeaderColumnPaintInsets(JComponent c, Graphics g, Rectangle rect, int orientation, int state, int sortOrder, Icon sortIcon, int orderIndex, Color indexColor, boolean paintIndex) {
+        int iconWidth = sortIcon == null ? 0 : sortIcon.getIconWidth();
+        int textWidthAndGap = 0;
+        if (paintIndex && orderIndex != -1) {
+            Font oldFont = g.getFont();
+            Font font = g.getFont().deriveFont(Font.PLAIN, oldFont.getSize() - 3);
+            String str = "" + (orderIndex + 1);
+            int textWidth = SwingUtilities.computeStringWidth(c.getFontMetrics(font), str);
+            textWidthAndGap = ARROW_TEXT_GAP + textWidth;
+        }
+        if (shouldDisplayOnTop() || textWidthAndGap + iconWidth == 0) {
+            return null;
+        }
+        return new Insets(0, 0, 0, textWidthAndGap + iconWidth);
     }
 
     public void paintSortableTableHeaderColumn(JComponent c, Graphics g, Rectangle rect, int orientation, int state, int sortOrder, Icon sortIcon, int orderIndex, Color indexColor, boolean paintIndex) {

@@ -91,7 +91,7 @@ public interface ThemePainter {
 
     void paintPopupMenuSeparator(JComponent c, Graphics g, Rectangle rect, int orientation, int state);
 
-    Insets getSortableTableHeaderColumnPaintInsets(JComponent c, Graphics g, Rectangle rect, int orientation, int state, int sortOrder, Icon sortIcon, int orderIndex, Color indexColor, boolean paintIndex);
+    Insets getSortableTableHeaderColumnCellDecoratorInsets(JComponent c, Graphics g, Rectangle rect, int orientation, int state, int sortOrder, Icon sortIcon, int orderIndex, Color indexColor, boolean paintIndex);
 
     void paintSortableTableHeaderColumn(JComponent c, Graphics g, Rectangle rect, int orientation, int state, int sortOrder, Icon sortIcon, int orderIndex, Color indexColor, boolean paintIndex);
 
